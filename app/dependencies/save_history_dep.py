@@ -14,7 +14,6 @@ class SaveHistoryRoute(APIRoute):
 
         async def custom_handler(request: Request) -> Response:
             try:
-                # Читаем тело запроса
                 try:
                     input_data = await request.json()
                 except Exception:
@@ -38,7 +37,6 @@ class SaveHistoryRoute(APIRoute):
                 return response
 
             except Exception as e:
-                # В случае ошибки
                 redis: Redis = get_redis(request)
                 try:
                     await save_request_to_redis(

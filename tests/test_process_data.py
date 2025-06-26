@@ -47,10 +47,8 @@ async def test_get_history():
 @pytest.mark.asyncio
 async def test_history_endpoint():
     async with AsyncClient(base_url="http://localhost:8080") as ac:
-        # Сначала сделаем POST-запрос, чтобы в истории появился хотя бы один элемент
         await ac.post("/process_data/", json={"name": "Behan"})
 
-        # Затем проверим историю
         response = await ac.get("/process_data/history/?n=1")
         assert response.status_code == status.HTTP_200_OK
 

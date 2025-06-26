@@ -1,4 +1,4 @@
-# Async FastAPI + Redis Project
+# Async FastAPI + Redis
 
 ##  Описание
 
